@@ -1,5 +1,5 @@
 require './person'
 
-class Student
+class Student <Person
     
 end
