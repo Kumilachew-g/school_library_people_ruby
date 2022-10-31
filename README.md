@@ -11,7 +11,7 @@
 
 ## Getting Started
 
-1.  Download the zip file form https://github.com/Kumilachew-g/school_library_people_ruby.git.
+1.  Download the zip file from [this_link](/https://github.com/Kumilachew-g/school_library_people_ruby.git.)
 2.  open the file by your preferred IDE, go to the project root folder.
 3.  run
 
