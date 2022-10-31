@@ -1,3 +1,6 @@
-class Teacher
+require './person'
+
+class Teacher < person
+    
     
 end
