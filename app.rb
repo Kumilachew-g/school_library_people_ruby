@@ -19,4 +19,10 @@ class App
         @persons << teacher
         puts 'Teacher created successfuly'
       end
+
+      def create_student(age, name, parent_permission)
+        student = Student.new(@classroom, age, name, parent_permission: parent_permission)
+        @persons << student
+        puts 'Student created successfuly'
+      end
 end
