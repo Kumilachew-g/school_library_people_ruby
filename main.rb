@@ -59,4 +59,9 @@ class Main
 
         book_index = gets.chomp.to_i
         book = app.books[book_index]
+
+        puts 'Select person from the following list by number:'
+    app.list_persons.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
 end
