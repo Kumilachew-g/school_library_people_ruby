@@ -2,7 +2,7 @@
 require './app'
 
 class Main
-  def display_options
+  def menu_options
     puts ' '
     puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
@@ -12,14 +12,6 @@ class Main
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
-  end
-
-  def add_book(app)
-    puts 'Title: '
-    title = gets.chomp
-    puts 'Author: '
-    author = gets.chomp
-    app.create_book(title, author)
   end
 
   def add_person(app)
@@ -32,7 +24,7 @@ class Main
     if type == 1
       puts 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      app.create_student(age, name, parent_permission: parent_permission.downcase == 'y')
+      app.create_new_student(age, name, parent_permission: parent_permission.downcase == 'y')
     else
       puts 'Specialization: '
       specialization = gets.chomp
@@ -41,24 +33,29 @@ class Main
     puts 'You choose invalid menu, Return to menu'
   end
 
-  def list_all_books(app)
+  def add_book(app)
+    puts 'Title: '
+    title = gets.chomp
+    puts 'Author: '
+    author = gets.chomp
+    app.create_book(title, author)
+  end
+
+  def list_books(app)
     app.list_books
   end
 
-  def list_all_person(app)
+  def list_person(app)
     app.list_persons
   end
-
 
   def add_rental(app)
     puts 'Books is empity ' if app.books.length.zero?
     puts 'Person is empity' if app.list_persons.length.zero?
     puts 'Select a book from the following list by number: '
-
     app.list_books.each_with_index do |book, index|
       puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end
-
     book_index = gets.chomp.to_i
     book = app.books[book_index]
 
@@ -69,25 +66,23 @@ class Main
 
     person_index = gets.chomp.to_i
     person = app.persons[person_index]
-
     puts 'Date:'
     date = gets.chomp
-
-    app.create_new_rental(date, person, book)
+    app.create_rental(date, person, book)
   end
 
-  def list_rentals_by_id(app)
+  def display_rentals_by_id(app)
     puts 'Enter person id:'
     id = gets.chomp.to_i
-    app.list_rentals_by_person_id(id)
+    app.display_rentals_by_person_id(id)
   end
 
   def menu(option, app)
     case option
     when 1
-      list_all_books(app)
+      list_books(app)
     when 2
-      list_all_person(app)
+      list_person(app)
     when 3
       add_person(app)
     when 4
@@ -104,7 +99,7 @@ class Main
     option = 0
     puts 'Welcome to School Library Rental App!'
     while option != 7
-      display_options
+      menu_options
       option = gets.chomp.to_i
       if option >= 0 && option < 7
         menu(option, app)
@@ -117,5 +112,5 @@ class Main
   end
 end
 
-main_app = Main.new
-main_app.main
+main_apps = Main.new
+main_apps.main
