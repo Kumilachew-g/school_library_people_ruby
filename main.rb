@@ -43,4 +43,8 @@ class Main
       def list_person(app)
         app.list_persons
       end
+
+      def list_books(app)
+        app.list_books
+      end
 end
