@@ -13,4 +13,10 @@ class App
         @persons = []
         @classroom = Classroom.new('Class A')
     end
+
+    def create_teacher(specialization, age, name)
+        teacher = Teacher.new(specialization, age, name)
+        @persons << teacher
+        puts 'Teacher created successfuly'
+      end
 end
