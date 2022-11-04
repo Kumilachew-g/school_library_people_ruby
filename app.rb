@@ -31,4 +31,10 @@ class App
         @rentals << rental
         puts 'Rental Created Successfuly'
       end
+
+      def create_book(title, author)
+        book = Book.new(title, author)
+        @books << book
+        puts 'Book Created Successfuly'
+      end
 end
