@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require './app'
 
 class Main
@@ -31,22 +32,23 @@ class Main
     if type == 1
       puts 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      app.create_new_student(age, name, parent_permission: parent_permission.downcase == 'y')
+      app.create_student(age, name, parent_permission: parent_permission.downcase == 'y')
     else
       puts 'Specialization: '
       specialization = gets.chomp
-      app.create_new_teacher(specialization, age, name)
+      app.create_teacher(specialization, age, name)
     end
     puts 'You choose invalid menu, Return to menu'
   end
 
-  def list_person(app)
+  def list_all_book(app)
+    app.list_books
+  end
+
+  def list_all_person(app)
     app.list_persons
   end
 
-  def list_books(app)
-    app.list_books
-  end
 
   def add_rental(app)
     puts 'Books is empity ' if app.books.length.zero?
@@ -83,9 +85,9 @@ class Main
   def menu(option, app)
     case option
     when 1
-      list_books(app)
+      list_all_books(app)
     when 2
-      list_person(app)
+      list_all_person(app)
     when 3
       add_person(app)
     when 4
@@ -115,5 +117,5 @@ class Main
   end
 end
 
-main_apps = Main.new
-main_apps.main
+main_app = Main.new
+main_app.main
