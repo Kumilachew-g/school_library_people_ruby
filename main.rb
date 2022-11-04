@@ -12,4 +12,12 @@ class Main
         puts '6 - List all rentals for a given person id'
         puts '7 - Exit'
       end
+
+      def add_book(app)
+        puts 'Title: '
+        title = gets.chomp
+        puts 'Author: '
+        author = gets.chomp
+        app.create_new_book(title, author)
+      end
 end
