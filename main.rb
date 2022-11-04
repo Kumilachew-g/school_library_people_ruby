@@ -19,7 +19,7 @@ class Main
     title = gets.chomp
     puts 'Author: '
     author = gets.chomp
-    app.create_new_book(title, author)
+    app.create_book(title, author)
   end
 
   def add_person(app)
@@ -41,7 +41,7 @@ class Main
     puts 'You choose invalid menu, Return to menu'
   end
 
-  def list_all_book(app)
+  def list_all_books(app)
     app.list_books
   end
 
