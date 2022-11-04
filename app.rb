@@ -12,4 +12,5 @@ class App
         @rentals = []
         @persons = []
         @classroom = Classroom.new('Class A')
+    end
 end
