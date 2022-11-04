@@ -1,7 +1,7 @@
 require './app'
 
 class Main
-  def menu_options
+  def display_options
     puts ' '
     puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
@@ -98,7 +98,7 @@ class Main
     option = 0
     puts 'Welcome to School Library Rental App!'
     while option != 7
-      menu_options
+      display_options
       option = gets.chomp.to_i
       if option >= 0 && option < 7
         menu(option, app)
