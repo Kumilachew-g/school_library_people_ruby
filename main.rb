@@ -96,4 +96,21 @@ class Main
       display_rentals_by_id(app)
     end
   end
+
+  def main
+    app = App.new
+    option = 0
+    puts 'Welcome to School Library Rental App!'
+    while option != 7
+      menu_options
+      option = gets.chomp.to_i
+      if option >= 0 && option < 7
+        menu(option, app)
+      elsif option == 7
+        puts 'Thanks for using this App!'
+      else
+        puts 'Invalid option'
+      end
+    end
+  end
 end
