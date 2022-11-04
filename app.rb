@@ -43,4 +43,10 @@ class App
         @persons.each do |person|
           puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, Id: #{person.id} "
      end
+
+     def list_of_books
+        puts 'No books list found!' if @books.length.zero?
+        @books.each { |book| puts "Book Title: \"#{book.title}\", Book Author: #{book.author}" }
+      end
+    end
 end
