@@ -56,4 +56,7 @@ class Main
         app.list_books.each_with_index do |book, index|
           puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
         end
+
+        book_index = gets.chomp.to_i
+        book = app.books[book_index]
 end
