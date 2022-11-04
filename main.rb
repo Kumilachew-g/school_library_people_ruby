@@ -114,3 +114,6 @@ class Main
     end
   end
 end
+
+main_apps = Main.new
+main_apps.main
