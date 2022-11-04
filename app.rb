@@ -49,4 +49,11 @@ class App
         @books.each { |book| puts "Book Title: \"#{book.title}\", Book Author: #{book.author}" }
       end
     end
+
+    def display_rentals_by_person_id(person_id)
+        person_rentals = @rentals.select { |rental| rental.person.id == person_id }
+        person_rentals.each do |rental|
+          puts " Book: #{rental.book.title}, Writen By: #{rental.book.author}, Date: #{rental.date}"
+        end
+    end
 end
