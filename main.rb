@@ -37,7 +37,10 @@ class Main
           specialization = gets.chomp
           app.create_new_teacher(specialization, age, name)
         end
-    
         puts 'You choose invalid menu, Return to menu'
+      end
+
+      def list_person(app)
+        app.list_persons
       end
 end
