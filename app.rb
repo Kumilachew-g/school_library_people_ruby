@@ -25,4 +25,10 @@ class App
         @persons << student
         puts 'Student created successfuly'
       end
+
+      def create_rental(date, person, book)
+        rental = Rental.new(date, person, book)
+        @rentals << rental
+        puts 'Rental Created Successfuly'
+      end
 end
