@@ -37,4 +37,10 @@ class App
         @books << book
         puts 'Book Created Successfuly'
       end
+
+      def list_of_persons
+        puts 'No person list found' if @persons.length.zero?
+        @persons.each do |person|
+          puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, Id: #{person.id} "
+     end
 end
