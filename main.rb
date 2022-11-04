@@ -64,4 +64,19 @@ class Main
     app.list_persons.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
+
+    person_index = gets.chomp.to_i
+    person = app.persons[person_index]
+
+    puts 'Date:'
+    date = gets.chomp
+
+    app.create_new_rental(date, person, book)
+  end
+
+  def list_rentals_by_id(app)
+    puts 'Enter person id:'
+    id = gets.chomp.to_i
+    app.list_rentals_by_person_id(id)
+  end
 end
