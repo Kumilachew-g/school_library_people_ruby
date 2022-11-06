@@ -17,7 +17,7 @@ class App
   def create_new_student(age, name, parent_permission)
     student = Student.new(@classroom, age, name, parent_permission: parent_permission)
     @persons << student
-    puts 'Student created successfuly'
+    puts 'Student Created Successfuly'
   end
 
   def create_teacher(specialization, age, name)
