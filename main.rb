@@ -1,4 +1,5 @@
 require './app'
+require './display_options'
 
 class Main
 
