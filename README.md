@@ -45,6 +45,10 @@ $ git  clone https://github.com/Kumilachew-g/school_library_people_ruby.git.
 - Twitter: [@twitterhandle](https://twitter.com/Getie_Haddis)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kumilachew-getie-0356bb157/)
 
+- GitHub: [@Ol-create](https://www.github.com/Ol-create)
+- Twitter: [@OluyemiPaul99](https://twitter.com/OluyemiPaul99)
+- LinkedIn: [@paul-oluyemi](https://linkedin.com/in/paul-oluyemi)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
