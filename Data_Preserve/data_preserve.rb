@@ -26,7 +26,7 @@ module DataPreserver
   # Add load_peoble method
   def load_people
     data = []
-    file = './data/people.json'
+    file = 'people.json'
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |person|
         if person['class'] == 'Student'
@@ -57,7 +57,7 @@ module DataPreserver
                     class: person.class })
       end
     end
-    File.write('./data/people.json', JSON.generate(data))
+    File.write('people.json', JSON.generate(data))
   end
 
   # Add load_rentals method
@@ -71,7 +71,7 @@ def get_book(title)
 
   def load_rentals
     data = []
-    file = './data/rentals.json'
+    file = 'rentals.json'
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |rental|
         rental = Rental.new(rental['date'], get_book(rental['book']), get_person(rental['person']))
@@ -86,6 +86,6 @@ def get_book(title)
     @rentals.each do |rental|
       data << { date: rental.date, book: rental.book.title, person: rental.person.id }
     end
-    File.write('./data/rentals.json', JSON.generate(data))
+    File.write('rentals.json', JSON.generate(data))
   end
 end
