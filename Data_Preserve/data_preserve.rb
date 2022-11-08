@@ -3,6 +3,10 @@ module DataPreserver
 
     #  Add load_books method
 
+    def load_books
+        
+    end
+         
 
 
     # Add load_peoble method
