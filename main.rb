@@ -4,6 +4,7 @@ require './menu'
 require './display_rentals_by_id'
 require './add_rental'
 require './list_books'
+require './list_person'
 
 class Main
   def add_person(app)
