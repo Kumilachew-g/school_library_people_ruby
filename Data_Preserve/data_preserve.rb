@@ -1,3 +1,6 @@
+require 'json'
+require './student'
+require './teacher'
 require './book'
 
 module DataPreserver
@@ -40,6 +43,20 @@ module DataPreserver
       end
     end
     data
+  end
+  def save_people
+    data = []
+    @people.each do |person|
+      if person.instance_of?(Teacher)
+        data.push({ id: person.id, name: person.name, age: person.age, parent_permission: person.parent_permission,
+                    class: person.class, specialization: person.specialization })
+      end
+      if person.instance_of?(Student)
+        data.push({ id: person.id, name: person.name, age: person.age, parent_permission: person.parent_permission,
+                    class: person.class })
+      end
+    end
+    File.write('./data/people.json', JSON.generate(data))
   end
 
   # Add load_rentals method
