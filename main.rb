@@ -33,10 +33,6 @@ class Main
     app.create_book(title, author)
   end
 
-  def list_person(app)
-    app.list_persons
-  end
-
   def main
     app = App.new
     option = 0
