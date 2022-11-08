@@ -1,3 +1,5 @@
+require './book'
+
 module DataPreserver
 
 
