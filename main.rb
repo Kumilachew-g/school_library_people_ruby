@@ -1,6 +1,8 @@
 require './app'
 require './display_options'
 require './menu'
+require './display_rentals_by_id'
+require './add_rental'
 
 class Main
   def add_person(app)
@@ -30,14 +32,9 @@ class Main
     app.create_book(title, author)
   end
 
-  def list_books(app)
-    app.list_books
-  end
-
   def list_person(app)
     app.list_persons
   end
-
 
   def main
     app = App.new
