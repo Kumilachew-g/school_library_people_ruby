@@ -1,5 +1,6 @@
 require './app'
 require './display_options'
+require './menu'
 
 class Main
   def add_person(app)
@@ -64,7 +65,6 @@ class Main
     id = gets.chomp.to_i
     app.display_rentals_by_person_id(id)
   end
-
 
   def main
     app = App.new
