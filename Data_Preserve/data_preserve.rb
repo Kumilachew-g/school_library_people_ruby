@@ -79,4 +79,12 @@ def get_book(title)
     end
     data
   end
+
+  def save_rentals
+    data = []
+    @rentals.each do |rental|
+      data << { date: rental.date, book: rental.book.title, person: rental.person.id }
+    end
+    File.write('./data/rentals.json', JSON.generate(data))
+  end
 end
