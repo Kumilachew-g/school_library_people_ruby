@@ -1,10 +1,10 @@
 require './app'
-require './display_options'
-require './menu'
-require './display_rentals_by_id'
-require './add_rental'
-require './list_books'
-require './list_person'
+require './Refactors/display_options'
+require './Refactors/menu'
+require './Refactors/display_rentals_by_id'
+require './Refactors/add_rental'
+require './Refactors/list_books'
+require './Refactors/list_person'
 
 class Main
   def add_person(app)
