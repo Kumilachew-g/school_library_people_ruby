@@ -60,4 +60,23 @@ module DataPreserver
   end
 
   # Add load_rentals method
+def get_book(title)
+    @books.each { |book| return book if book.title == title }
+  end
+
+  def get_person(id)
+    @people.each { |person| return person if person.id == id }
+  end
+
+  def load_rentals
+    data = []
+    file = './data/rentals.json'
+    if File.exist?(file) && File.read(file) != ''
+      JSON.parse(File.read(file)).each do |rental|
+        rental = Rental.new(rental['date'], get_book(rental['book']), get_person(rental['person']))
+        data << rental
+      end
+    end
+    data
+  end
 end
