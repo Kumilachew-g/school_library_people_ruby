@@ -5,7 +5,7 @@ class Student < Person
   attr_reader :classroom
 
   def initialize(age:, name: 'Unknown', parent_permission: true, classroom: nil, id: nil)
-    super(id: id, name: name, age: age, parent_permission: parent_permission)
+    super(id: id, age: age, name: name, parent_permission: parent_permission)
     @classroom = classroom
   end
 

@@ -17,11 +17,11 @@ class Main
     if type == 1
       puts 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      app.create_new_student(age, name, parent_permission: parent_permission.downcase == 'y')
+      app.create_new_student(name, age, parent_permission: parent_permission.downcase == 'y')
     else
       puts 'Specialization: '
       specialization = gets.chomp
-      app.create_teacher(specialization, age, name)
+      app.create_teacher(specialization, name, age)
     end
     puts 'You choose invalid menu, Return to menu'
   end

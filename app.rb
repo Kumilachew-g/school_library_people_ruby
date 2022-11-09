@@ -14,14 +14,14 @@ class App
     @classroom = Classroom.new('Class A')
   end
 
-  def create_new_student(age, name, parent_permission)
+  def create_new_student( name, age, parent_permission)
     student = Student.new(name: name, age: age.to_i, parent_permission: parent_permission)
     @persons << student
     puts 'Student Created Successfuly'
   end
 
-  def create_teacher(specialization, age, name)
-    teacher = Teacher.new(specialization, age, name)
+  def create_teacher(specialization, name, age )
+    teacher = Teacher.new(specialization: specialization,name: name, age: age.to_i)
     @persons << teacher
     puts 'Teacher Created Successfuly'
   end
