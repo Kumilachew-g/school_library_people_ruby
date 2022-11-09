@@ -9,11 +9,10 @@ module DataPreserver
     file = 'books.json'
     data = []
     if File.exist?(file) && File.read(file) != ''
-      JSON.parse(File.read(file).to_json).each do |item|
-        data.push(Book.new(item.title, item.author))
+      JSON.parse(File.read(file)).each do |element|
+        data.push(Book.new(element['title'], element['author']))
       end
     end
-
     data
   end
 
