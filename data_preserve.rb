@@ -60,10 +60,10 @@ module DataPreserver
     data = []
     @persons.each do |person|
       if person.instance_of?(Teacher)
-        data.push({ id: person.id, age: person.age, name: person.name,
+        data.push({ id: person.id, name: person.name, age: person.age,
                     specialization: person.specialization, data_type: person.class })
       else
-        data.push({ id: person.id, age: person.age, name: person.name,
+        data.push({ id: person.id, name: person.name, age: person.age,
                     parent_permission: person.parent_permission, data_type: person.class })
       end
     end

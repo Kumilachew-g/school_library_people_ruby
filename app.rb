@@ -36,8 +36,8 @@ class App
     save_books
   end
 
-  def create_rental(date, person, book)
-    rental = Rental.new(date, person, book)
+  def create_rental(date, book, person)
+    rental = Rental.new(date, book, person)
     @rentals << rental
     puts 'Rental Created Successfuly'
     save_rental
