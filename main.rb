@@ -1,56 +1,40 @@
 require './app'
-require './Refactors/display_options'
-require './Refactors/menu'
-require './Refactors/display_rentals_by_id'
-require './Refactors/add_rental'
-require './Refactors/list_books'
-require './Refactors/list_person'
+require './input'
+require './data_preserver'
 
 class Main
-  def add_person(app)
-    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    type = gets.chomp.to_i
-    puts 'Name: '
-    name = gets.chomp
-    puts 'Age: '
-    age = gets.chomp.to_i
-    if type == 1
-      puts 'Has parent permission? [Y/N]: '
-      parent_permission = gets.chomp
-      app.create_new_student(age, name, parent_permission: parent_permission.downcase == 'y')
-    else
-      puts 'Specialization: '
-      specialization = gets.chomp
-      app.create_teacher(specialization, age, name)
-    end
-    puts 'You choose invalid menu, Return to menu'
+  def initialize
+    @app = App.new
+    @input = Input.new
   end
 
-  def add_book(app)
-    puts 'Title: '
-    title = gets.chomp
-    puts 'Author: '
-    author = gets.chomp
-    app.create_book(title, author)
+  def run
+    user_input = 0
+    puts 'Welcome to School Library App!'
+    while user_input != '7'
+      options
+      user_input = @input.read
+      @app.options_cases(user_input)
+    end
+    puts 'Thank you for using this app!'
+
+    @app.save_person
+    @app.save_books
+    @app.save_rental
   end
 
-  def main
-    app = App.new
-    option = 0
-    puts 'Welcome to School Library Rental App!'
-    while option != 7
-      display_options
-      option = gets.chomp.to_i
-      if option >= 0 && option < 7
-        menu(option, app)
-      elsif option == 7
-        puts 'Thanks for using this App!'
-      else
-        puts 'Invalid option'
-      end
-    end
+  def options
+    puts
+    puts 'Please choose an option by enterin a number:'
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person id'
+    puts '7 - Exit'
   end
 end
 
-main_apps = Main.new
-main_apps.main
+main = Main.new
+main.run
