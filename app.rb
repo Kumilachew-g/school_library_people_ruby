@@ -27,7 +27,6 @@ class App
     teacher = Teacher.new(specialization: specialization, name: name, age: age.to_i)
     @persons << teacher
     puts 'Teacher Created Successfuly'
-    save_people
   end
 
   def create_book(title, author)
