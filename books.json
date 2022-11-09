@@ -1,5 +1,7 @@
-
-[{"title":"React","author":"Haddis"},{"title":"Ruby","author":"Henok"}]
-
-[{"title":"code","author":"Haddis"},{"title":"Ruby","author":"Pual"},{"title":"React","author":"Kumie"},{"title":"CSS","author":"Hawa"},{"title":"Java","author":"Rahel"}]
-
+[
+  { "title": "code", "author": "Haddis" },
+  { "title": "Ruby", "author": "Pual" },
+  { "title": "React", "author": "Kumie" },
+  { "title": "CSS", "author": "Hawa" },
+  { "title": "Java", "author": "Rahel" }
+]
