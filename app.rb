@@ -12,6 +12,9 @@ class App
     @books = []
     @rentals = []
     @classroom = Classroom.new('Class A')
+    @books  = load_books
+    @people = load_peoble
+    @rentals = load_rentals
   end
 
   def create_new_student(age, name, parent_permission)
