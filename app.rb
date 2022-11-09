@@ -23,8 +23,8 @@ class App
     puts 'Student Created Successfuly'
   end
 
-  def create_teacher(specialization, name, age)
-    teacher = Teacher.new(specialization: specialization, name: name, age: age.to_i)
+  def create_teacher(name, age, specialization)
+    teacher = Teacher.new(name: name, age: age.to_i, specialization: specialization)
     @persons << teacher
     puts 'Teacher Created Successfuly'
   end
