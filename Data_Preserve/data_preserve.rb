@@ -45,6 +45,7 @@ module DataPreserver
     end
     data
   end
+
   def save_people
     data = []
     @people.each do |person|
@@ -61,7 +62,7 @@ module DataPreserver
   end
 
   # Add load_rentals method
-def get_book(title)
+  def get_book(title)
     @books.each { |book| return book if book.title == title }
   end
 
