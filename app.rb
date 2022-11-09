@@ -1,64 +1,147 @@
-require './classroom'
 require './student'
 require './teacher'
 require './book'
 require './rental'
-require_relative './data_preserve'
+require './data_preserver'
+require './input'
 
 class App
-  attr_accessor :persons, :books, :rentals
-
   include DataPreserver
-
   def initialize
-    @persons = []
-    @books = []
-    @rentals = []
-    @classroom = Classroom.new('Class A')
+    @books = load_books
+    @persons = load_peoble
+    @rentals = load_rentals
+    @input = Input.new
   end
 
-  def create_new_student(name, age, parent_permission)
-    student = Student.new(name: name, age: age.to_i, parent_permission: parent_permission)
-    @persons << student
-    puts 'Student Created Successfuly'
-  end
-
-  def create_teacher(name, age, specialization)
-    teacher = Teacher.new(name: name, age: age.to_i, specialization: specialization)
-    @persons << teacher
-    puts 'Teacher Created Successfuly'
-  end
-
-  def create_book(title, author)
-    book = Book.new(title, author)
-    @books << book
-    puts 'Book Creted Successfuly'
-    save_books
-  end
-
-  def create_rental(date, book, person)
-    rental = Rental.new(date, book, person)
-    @rentals << rental
-    puts 'Rental Created Successfuly'
-    save_rental
-  end
-
-  def list_books
-    puts 'No book lists found!' if @books.length.zero?
-    @books.each { |book| puts "Book Title: \"#{book.title}\", Book Author: #{book.author}" }
-  end
-
-  def list_persons
-    puts 'No person lists found' if @persons.length.zero?
-    @persons.each do |person|
-      puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, Id: #{person.id} "
+  def options_cases(user_input)
+    case user_input
+    when '1'
+      list_all_books
+    when '2'
+      list_all_people
+    when '3'
+      create_person
+    when '4'
+      create_book
+    when '5'
+      create_rental
+    when '6'
+      list_all_rental_by_id
     end
   end
 
-  def display_rentals_by_person_id(person_id)
-    person_rentals = @rentals.select { |rental| rental.person.id == person_id }
-    person_rentals.each do |rental|
-      puts " Book: #{rental.book.title}, Writen By: #{rental.book.author}, Date: #{rental.date}"
+  def list_all_books
+    @books.each do |book|
+      puts "Title: \"#{book.title}\", Author: #{book.author}"
+    end
+  end
+
+  def list_all_people
+    @persons.each do |person|
+      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+  end
+
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    student_or_teacher = @input.read
+
+    case student_or_teacher
+    when '1'
+      create_student
+    when '2'
+      create_teacher
+    else
+      puts 'Wrong Input!'
+      return
+    end
+
+    puts 'Person created successfully'
+  end
+
+  def create_student
+    print 'Age: '
+    age = @input.read
+
+    print 'Name: '
+    name = @input.read
+
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = @input.read
+
+    unless parent_permission.upcase == 'Y' || parent_permission.upcase == 'N'
+      puts 'Wrong Input!'
+      return
+    end
+
+    parent_permission = parent_permission.upcase == 'Y'
+    @persons.push(Student.new(age: age.to_i, name: name, parent_permission: parent_permission))
+  end
+
+  def create_teacher
+    print 'Age: '
+    age = @input.read
+
+    print 'Name: '
+    name = @input.read
+
+    print 'Specialization: '
+    specialization = @input.read
+    @persons.push(Teacher.new(specialization: specialization, age: age.to_i, name: name))
+  end
+
+  def create_book
+    print 'Title: '
+    title = @input.read
+
+    print 'Author: '
+    author = @input.read
+
+    @books.push(Book.new(title, author))
+
+    puts 'Book created successfully'
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+    end
+
+    book_index = @input.read
+
+    puts 'Select a person from the following list by number (not id)'
+
+    @persons.each_with_index do |person, index|
+      puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+
+    person_index = @input.read
+
+    if book_index.to_i >= @books.length || person_index.to_i >= @persons.length
+      puts 'Wrong Index!'
+      return
+    end
+
+    print 'Date: '
+    date = @input.read
+
+    @rentals.push(Rental.new(date, @books[book_index.to_i], @persons[person_index.to_i]))
+
+    puts 'Rental created successfully'
+  end
+
+  def list_all_rental_by_id
+    print 'ID of person: '
+    person_id = @input.read
+
+    puts 'Rentals:'
+    @rentals.each do |rental|
+      if rental.person.id.to_s == person_id
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
     end
   end
 end
