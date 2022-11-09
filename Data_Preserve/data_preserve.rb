@@ -5,7 +5,6 @@ require './rental'
 require './book'
 
 module DataPreserver
-  #  Add load_books method
 
   def load_books
     file = 'books.json'
