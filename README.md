@@ -12,7 +12,7 @@
 ## Getting Started
 
 1.  Download the zip file from [this_link](https://github.com/Kumilachew-g/school_library_people_ruby.git)
-2.  open the file by your preferred IDE, go to the project root folder.
+2.  open the file with your preferred IDE, go to the project root folder.
 3.  run
 
 ### Prerequisites
@@ -44,7 +44,6 @@ $ git  clone https://github.com/Kumilachew-g/school_library_people_ruby.git.
 - GitHub: [@githubhandle](https://github.com/Kumilachew-g/)
 - Twitter: [@twitterhandle](https://twitter.com/Getie_Haddis)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kumilachew-getie-0356bb157/)
-
 
 👤 **Oluyemi Paul**
 
