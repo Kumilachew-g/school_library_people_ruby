@@ -1,31 +1,23 @@
 require './book'
-require './student'
 require './rental'
+require './student'
 
 describe Book do
-  title = 'The Great Gatsby'
-  author = 'F. Scott Fitzgerald'
-  let(:book) { Book.new(title, author) }
-
-  name = 'John Doe'
-  age = 20
-  classroom = '1A'
-  let(:student) { Student.new(age, name, classroom) }
-
-  it 'should be a book' do
-    expect(book).to be_a(Book)
+  before :each do
+    @book = Book.new 'Title', 'Author'
   end
 
-  it 'should have a title' do
-    expect(book.title).to eq(title)
+  it 'should detect the book title' do
+    expect(@book.title).to eq 'Title'
   end
 
-  it 'should have an author' do
-    expect(book.author).to eq(author)
+  it 'should detect the book author' do
+    expect(@book.author).to eq 'Author'
   end
 
-  it 'should have a list of rentals' do
-    empty_rentals = []
-    expect(book.rentals).to eq(empty_rentals)
+  it 'should detect the book rentals' do
+    student = Student.new(age: 20, name: 'Student')
+    Rental.new('11/10/2022', @book, student)
+    expect(@book.rentals.length).to eq 1
   end
 end
