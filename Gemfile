@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem "matrix", "~> 0.4.2"
+gem 'matrix', '~> 0.4.2'
