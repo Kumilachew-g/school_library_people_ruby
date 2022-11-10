@@ -1,41 +1,29 @@
 require './person'
-require './book'
-require './rental'
 
 describe Person do
-  id = 3
-  age = 20
-  name = 'Firdavs'
-  parent_permission = true
-  let(:person) { Person.new(id, age, name, parent_permission: parent_permission) }
+  before :each do
+    @person = Person.new age: 10, name: 'Henok', id: nil
 
-  it 'should be a person' do
-    expect(person).to be_a(Person)
+    @person_two = Person.new age: 25, name: 'Haddis Getie Tsega', id: nil
   end
 
-  it 'should have a name' do
-    expect(person.name).to eq(name)
+  it 'should validate the age of the person created' do
+    expect(@person.age).to eq 10
+    expect(@person_two.age).to eq 25
   end
 
-  it 'should have an age' do
-    expect(person.age).to eq(age)
+  it 'should validate the name of the person created' do
+    expect(@person.name).to eq 'Henok'
+    expect(@person_two.name).to eq 'Haddis Getie Tsega'
   end
 
-  it 'should have parent permission' do
-    expect(person.parent_permission).to eq(parent_permission)
+  it 'should validate the corrector method' do
+    expect(@person.validate_name).to eq 'Henok'
+    expect(@person_two.validate_name).to eq 'Haddis get'
   end
 
-  it 'should have rentals' do
-    empty_rentals_for_person = []
-    expect(person.rentals).to eq(empty_rentals_for_person)
-  end
-
-  it 'should be able to use services' do
-    expect(person.can_use_services?).to be(true)
-  end
-
-  it 'should return correct name' do
-    person.validate_name
-    expect(person.name).to eq(name)
+  it 'should validate the can_use_services method' do
+    expect(@person.can_use_services?).to eq true
+    expect(@person_two.can_use_services?).to eq true
   end
 end
