@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# school_library_people_ruby
+# School Library
 
-> school library is the console app that let the user can manage the books in the library by adding new person like student and teacher and their book rentals information.
+> THis is the console app school library that let the user can manage the books in the library by adding new person like student and teacher and their book rentals information.
 
 ## Built With
 
