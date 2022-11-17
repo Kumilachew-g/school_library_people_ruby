@@ -4,6 +4,8 @@
 
 > THis is the console app school library that let the user can manage the books in the library by adding new person like student and teacher and their book rentals information.
 
+[Link for presentation video](https://drive.google.com/file/d/12eRAhOSMyqIQRY9jOxehz_Q9dsMz_9N4/view)
+
 ## Built With
 
 - Ruby
