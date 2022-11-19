@@ -8,6 +8,7 @@
 
 - Ruby
 - Linters => Rubocop
+- Rspec
 
 ## Getting Started
 
